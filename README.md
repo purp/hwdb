@@ -1,24 +1,15 @@
-# README
+# Getting Started
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Do all the usual Rails startup bits, e.g. `bundle install && rake db:create` but don't do `db:migrate`
+1. Get a SQL dump file of Alex's hardware database.
+1. `SQL_DUMP=/path/to/dump/file.sql rake db:migrate` which will load your database dump and apply some adjustments from `db/sql/adjustments.sql`
+1. `rails server` and you're good to go
 
-Things you may want to cover:
+## Caveats
 
-* Ruby version
+This was written to be a read-only view and follows the Principle of Minimal Munging. Rather than munge the tables around into a form that Rails would prefer, we create some views to provide the table names that Rails expects, with the columns that Rails wants to see.
 
-* System dependencies
+I've never tried writing new records via this, though it should work properly. Still, if we wanted this to work long-term, I'd probably translate the database format itself to remove the hacky view thing.
 
-* Configuration
+_Ut visum notitia bona id temporis ..._
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
